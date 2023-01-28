@@ -31,7 +31,7 @@ export default function Login() {
                 <Button variant="contained">카카오톡으로 시작하기</Button>
               </Box>
               <Box sx={{ pb: 1 }}>
-                <Button variant="contained">시작하기</Button>
+                <Button variant="contained">붕어빵으로 시작하기</Button>
               </Box>
               <Box>
                 <Button variant="contained">회원가입</Button>

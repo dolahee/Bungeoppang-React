@@ -26,7 +26,7 @@ export default function Main() {
                 alert("clicked");
               }}
             >
-              검색하기
+              붕어빵 가게 검색하기
             </Button>
           </Box>
         </Box>
