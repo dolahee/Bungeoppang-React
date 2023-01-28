@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import MapContext from "./MapContext";
+import React, { useState, useEffect, useRef } from "react";
 import "ol/ol.css";
 import { Map as OlMap, View } from "ol";
 import { defaults as defaultControls, FullScreen } from "ol/control";
@@ -11,11 +10,16 @@ import {
   defaults as defaultInteractions,
 } from "ol/interaction";
 
-const Map = ({ children }) => {
-  const [mapObj, setMapObj] = useState({});
+interface Props {
+  children?: React.ReactNode;
+}
+
+const Map = ({ children }: Props) => {
+  const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    //Map 객체 생성 및 vworld 지도 설정
+    const projection = getProjection("EPSG:3857");
+    if (!projection) return;
     const map = new OlMap({
       controls: defaultControls({ zoom: false, rotate: false }).extend([
         new FullScreen(),
@@ -24,28 +28,26 @@ const Map = ({ children }) => {
       layers: [
         new TileLayer({
           source: new XYZ({
-            //인증키는 vworld에서 발급 가능
             crossOrigin: "anonymous",
             url: "http://mt0.google.com/vt/lyrs=m&h1=ko&x={x}&y={y}&z={z}",
           }),
         }),
       ],
-      target: "map",
+      target: mapRef.current as HTMLDivElement,
       view: new View({
-        projection: getProjection("EPSG:3857"),
-        center: fromLonLat(
-          [126.9779228388393, 37.56643948208262], //[경도, 위도] 값 설정! 필자는 시청으로 설정
-          getProjection("EPSG:3857")
-        ),
+        projection,
+        center: fromLonLat([126.9779228388393, 37.56643948208262], projection),
         zoom: 15,
       }),
     });
-
-    setMapObj({ map });
     return () => map.setTarget(undefined);
   }, []);
 
-  return <MapContext.Provider value={mapObj}>{children}</MapContext.Provider>;
+  return (
+    <div ref={mapRef} style={{ width: "100%", height: "100%" }}>
+      {children}
+    </div>
+  );
 };
 
 export default Map;
