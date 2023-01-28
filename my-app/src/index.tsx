@@ -7,7 +7,8 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./lib/theme";
-
+import ReactDOM from "react-dom";
+import Map from "./Map"; //context.Provider를 가져옴
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 

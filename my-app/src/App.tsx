@@ -6,7 +6,7 @@ import MapPage from "./views/MapPage";
 import Login from "./views/Login";
 import Join from "./views/Join";
 import Registration from "./views/Registration";
-import MyPage from "./views/MyPage";
+import Map from "./Map";
 
 function App() {
   return (

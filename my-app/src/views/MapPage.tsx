@@ -14,12 +14,14 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import Maps from "../components/Maps";
 
 const drawerWidth = 300;
 
 export default function MapPage() {
   return (
     <Box sx={{ display: "flex" }}>
+      <Maps />
       <CssBaseline />
       <Header />
       <Drawer
