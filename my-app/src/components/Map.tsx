@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "ol/ol.css";
 import { Map as OlMap, View } from "ol";
 import { defaults as defaultControls, FullScreen } from "ol/control";
