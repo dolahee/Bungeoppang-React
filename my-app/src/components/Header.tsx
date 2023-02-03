@@ -30,10 +30,10 @@ export default function Header() {
             </Typography>
             <Box sx={{ flexGrow: 1 }}>
               <Button sx={{ pr: 3 }} color="inherit">
-                가게등록하기
+                지도
               </Button>
               <Button sx={{ pr: 3 }} color="inherit">
-                여긴 아직 미정
+                가게등록하기
               </Button>
               <Button sx={{ pr: 3 }} color="inherit">
                 마이페이지
