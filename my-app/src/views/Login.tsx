@@ -1,7 +1,12 @@
 import { Box, Button, Container, Paper, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const Join = () => {
+    navigate(`/Join`);
+  };
   return (
     <Box
       sx={{
@@ -34,7 +39,9 @@ export default function Login() {
                 <Button variant="contained">붕어빵으로 시작하기</Button>
               </Box>
               <Box>
-                <Button variant="contained">회원가입</Button>
+                <Button variant="contained" onClick={Join}>
+                  회원가입
+                </Button>
               </Box>
             </Box>
           </Box>
