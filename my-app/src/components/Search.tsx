@@ -3,8 +3,10 @@ import axios from "axios";
 import React, { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 import Modal from "./Modal";
-
-export default function Search() {
+interface Props {
+  searchBox?: number;
+}
+export default function Search({ searchBox }: Props) {
   const [value, setValue] = useState("");
   const [result, setResult] = useState<SearchResult[]>([]);
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -25,21 +27,23 @@ export default function Search() {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <Box display="flex" alignItems="center">
-        <Box>
-          <TextField
-            onChange={onChange}
-            fullWidth
-            label="지역명, 지하철역 검색"
-            size="small"
-            value={value}
-          />
-        </Box>
-        <Box>
-          <Modal searchResult={result} />
-        </Box>
-      </Box>
-    </form>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      component="form"
+      onSubmit={onSubmit}
+      width={searchBox}
+    >
+      <TextField
+        onChange={onChange}
+        fullWidth
+        label="지역명, 지하철역 검색"
+        size="small"
+        value={value}
+      />
+
+      <Modal searchResult={result} />
+    </Box>
   );
 }

@@ -8,12 +8,17 @@ import {
   ListItemText,
   Toolbar,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Store from "../views/Store";
+import StoreData from "../components/StoreData";
 
 const drawerWidth = 400;
 
 export default function Sidebar() {
+  const [open, setOpen] = useState(false);
+  const StoerData = () => {
+    setOpen(true);
+  };
   return (
     <Drawer
       variant="permanent"
@@ -38,18 +43,19 @@ export default function Sidebar() {
         </List>
         <Divider />
         <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Store />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
+          <ListItem disablePadding onClick={StoerData}>
             <ListItemButton>
               <Store />
             </ListItemButton>
           </ListItem>
         </List>
       </Box>
+      <StoreData
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
     </Drawer>
   );
 }

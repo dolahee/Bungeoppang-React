@@ -37,21 +37,9 @@ export default function Main() {
                 justifyContent: "center",
               }}
             >
-              <Box sx={{ width: 500, backgroundColor: "white" }}>
-                <TextField
-                  fullWidth
-                  label="찾고 싶은 붕어빵의 지역명, 지하철역을 입력해 주세요"
-                  id="fullWidth"
-                />
+              <Box sx={{ backgroundColor: "white" }}>
+                <Search searchBox={700} />
               </Box>
-              <Button
-                variant="contained"
-                onClick={() => {
-                  alert("clicked");
-                }}
-              >
-                붕어빵 가게 검색하기
-              </Button>
             </Box>
           </Box>
         </Box>

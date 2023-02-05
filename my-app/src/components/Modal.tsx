@@ -30,6 +30,7 @@ export default function Modal({ searchResult }: Props) {
         size="large"
         variant="contained"
         onClick={handleClickOpen}
+        sx={{ wordBreak: "keep-all" }}
       >
         검색
       </Button>
