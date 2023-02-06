@@ -21,7 +21,9 @@ export default function Introduction() {
         <Typography variant="h5" component="div" p={4}>
           핸드폰으로도 쉽게 찾을 수 있습니다.
         </Typography>
-        <Button variant="contained">모바일 버전 바로가기</Button>
+        <a href="http://49.50.167.53:8000/" style={{ textDecoration: "none" }}>
+          <Button variant="contained">모바일 버전 바로가기</Button>{" "}
+        </a>
       </Box>
     </Box>
   );

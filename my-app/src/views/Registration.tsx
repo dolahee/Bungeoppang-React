@@ -89,7 +89,9 @@ export default function Registration() {
               </Paper>
             </Box>
           </Paper>
-          <Button variant="contained">가게 등록하기</Button>
+          <Button sx={{ mt: 2 }} variant="contained">
+            가게 등록하기
+          </Button>
         </Container>
       </Box>
     </>

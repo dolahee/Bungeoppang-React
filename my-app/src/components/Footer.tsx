@@ -21,23 +21,10 @@ export default function Footer() {
           p: 0,
         }}
       >
-        <Typography variant="h6" component="div" p={1}>
-          사용기술
-        </Typography>
-        <Typography variant="h6" component="div" p={1}>
-          작업자 포토폴리오
+        <Typography variant="h6" component="div" p={2}>
+          Copyright © ParkDohee. All Rights Reserved.
         </Typography>
       </Box>
-
-      <Box>
-        <Typography variant="h6" component="div" p={1}>
-          깃허브 아이콘
-        </Typography>
-      </Box>
-
-      <Typography variant="h6" component="div" p={2}>
-        Copyright © ParkDohee. All Rights Reserved.
-      </Typography>
     </Box>
   );
 }
