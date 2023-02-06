@@ -22,10 +22,6 @@ const Map = ({ children, onLoaded }: Props) => {
     const projection = getProjection("EPSG:3857");
     if (!projection) return;
     const map = new OlMap({
-      controls: defaultControls({ zoom: false, rotate: false }).extend([
-        new FullScreen(),
-      ]),
-      interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
       layers: [
         new TileLayer({
           source: new XYZ({

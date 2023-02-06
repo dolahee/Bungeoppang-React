@@ -1,8 +1,13 @@
 import { Box, Button, TextField } from "@mui/material";
+import { Map } from "ol";
 import React from "react";
 import Search from "./Search";
 
-export default function SearchBox() {
+interface Props {
+  map?: Map;
+}
+
+export default function SearchBox({ map }: Props) {
   return (
     <Box
       sx={{
@@ -19,7 +24,7 @@ export default function SearchBox() {
         border: 1,
       }}
     >
-      <Search />
+      <Search map={map} />
     </Box>
   );
 }

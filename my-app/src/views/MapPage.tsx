@@ -14,27 +14,27 @@ const SRC = "EPSG:4326";
 export default function MapPage() {
   const [map, setMap] = useState<OlMap>();
 
-  const getStoreList = async () => {
-    const view = map?.getView();
-    if (view && map) {
-      const [x1, y1, x2, y2] = view.calculateExtent(map.getSize());
-      const southWest = transform([x1, y1], DST, SRC);
-      const northEast = transform([x2, y2], DST, SRC);
-      const response = await axios({
-        method: "POST",
-        url: "/storeList",
-        data: {
-          southWest: { lon: southWest[0], lat: southWest[1] },
-          northEast: { lon: northEast[0], lat: northEast[1] },
-        },
-      });
-      console.log(response.data);
-      return response.data;
-    }
-  };
+  // const getStoreList = async () => {
+  //   const view = map?.getView();
+  //   if (view && map) {
+  //     const [x1, y1, x2, y2] = view.calculateExtent(map.getSize());
+  //     const southWest = transform([x1, y1], DST, SRC);
+  //     const northEast = transform([x2, y2], DST, SRC);
+  //     const response = await axios({
+  //       method: "POST",
+  //       url: "/storeList",
+  //       data: {
+  //         southWest: { lon: southWest[0], lat: southWest[1] },
+  //         northEast: { lon: northEast[0], lat: northEast[1] },
+  //       },
+  //     });
+  //     console.log(response.data);
+  //     return response.data;
+  //   }
+  // };
 
-  const onMapLoaded = useCallback((map?: OlMap) => {
-    setMap(map);
+  const onMapLoaded = useCallback((newMap?: OlMap) => {
+    setMap(newMap);
   }, []);
 
   return (
@@ -47,7 +47,7 @@ export default function MapPage() {
         <Box width="100%">
           {/* 그 안에 지도*/}
           <Map onLoaded={onMapLoaded} />
-          <SearchBox />
+          <SearchBox map={map} />
         </Box>
       </Box>
     </>

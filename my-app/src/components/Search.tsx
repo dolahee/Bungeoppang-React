@@ -1,12 +1,14 @@
 import { Box, Button, TextField } from "@mui/material";
 import axios from "axios";
+import { Map } from "ol";
 import React, { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 import Modal from "./Modal";
 interface Props {
   searchBox?: number;
+  map?: Map;
 }
-export default function Search({ searchBox }: Props) {
+export default function Search({ searchBox, map }: Props) {
   const [value, setValue] = useState("");
   const [result, setResult] = useState<SearchResult[]>([]);
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +27,7 @@ export default function Search({ searchBox }: Props) {
     console.log(response.data);
     setResult(response.data);
   };
+  console.log(map);
 
   return (
     <Box
