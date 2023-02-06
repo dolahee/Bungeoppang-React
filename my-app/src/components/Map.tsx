@@ -11,10 +11,11 @@ import {
 } from "ol/interaction";
 
 interface Props {
+  onLoaded?: (map?: OlMap) => void;
   children?: React.ReactNode;
 }
 
-const Map = ({ children }: Props) => {
+const Map = ({ children, onLoaded }: Props) => {
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,8 +41,12 @@ const Map = ({ children }: Props) => {
         zoom: 15,
       }),
     });
-    return () => map.setTarget(undefined);
-  }, []);
+    onLoaded?.(map);
+    return () => {
+      map.setTarget(undefined);
+      onLoaded?.(undefined);
+    };
+  }, [onLoaded]);
 
   return (
     <div ref={mapRef} style={{ width: "100%", height: "100%" }}>

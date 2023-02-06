@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import { Box, Button } from "@mui/material";
 import React from "react";
 import Sidebar from "../components/Sidebar";
 
@@ -15,6 +15,7 @@ export default function StoreData({ open, onClose }: Props) {
   return (
     <Box
       sx={{
+        p: 3,
         width: "100%",
         alignItems: "center",
         justifyContent: "center",
@@ -33,8 +34,10 @@ export default function StoreData({ open, onClose }: Props) {
           <h2>메뉴:</h2>
           <h2>운영시간:</h2>
           <h2>별점:</h2>
-          <button>별점 남기기</button>
-          <button>가게 수정하기</button>
+          <Button variant="contained" sx={{ mr: 2 }}>
+            별점 남기기
+          </Button>
+          <Button variant="contained">가게 수정하기</Button>
         </div>
       </div>
     </Box>

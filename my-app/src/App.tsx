@@ -14,6 +14,7 @@ import NotFound from "./views/NotFound";
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Main />} />
       <Route path="/Main" element={<Main />} />
       <Route path="/MapPage" element={<MapPage />} />
       <Route path="/MyPage" element={<MyPage />} />
